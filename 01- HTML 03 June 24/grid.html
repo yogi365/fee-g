@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: rgb(153, 153, 153);
+            width:80%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap:10px;
+            padding:10px;
+        }
+
+        .container div{
+            background-color: white;
+        }
+        .div3{
+            grid-column-start: 2;
+            grid-column-end:3;
+            grid-row-start:1;
+            grid-row-end:3;
+        }
+        .div2{
+            grid-column-start:1;
+            grid-column-end: 2;
+        }
+        .div4{
+            grid-column-start:1;
+            grid-column-end:3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="div1">
+            <h3>Username</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore qui magni necessitatibus enim totam dolores porro modi ducimus blanditiis beatae, ipsa quaerat, praesentium dignissimos quas facere laboriosam soluta dolorum?</div>
+        <div class="div2">
+            <h3>Contact</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora animi porro molestias nam eaque expedita sit deleniti voluptatem repellat nobis, ea error veniam ullam repellendus vitae, quo modi a esse?</div>
+        <div class="div3">
+            <h3>Favorite</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia vel reprehenderit repellat a. Provident, dolorem laborum. Magnam doloremque aliquam doloribus, vel id ea quisquam et cupiditate beatae eligendi qui?</div>
+        <div class="div4">
+            <h3>About</h3>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse voluptas illum, a laudantium delectus, commodi cum beatae architecto praesentium corrupti odit enim magnam excepturi dolores voluptatibus quia omnis nihil expedita.</div>
+    </div>
+</body>
+</html>
