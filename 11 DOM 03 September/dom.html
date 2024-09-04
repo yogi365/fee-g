@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="demo class">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            object-fit: fill;
+        }
+    </style>
+</head>
+<body>
+    <p>This is a para</p>
+</body>
+<script>
+    // console.log(window.document.body);
+
+    function palindrome(str){
+        str = str.toString();
+        return str.split('').reverse().join('') == str;
+    }
+
+    palindrome(121);
+    palindrome('aba')
+</script>
+</html>
