@@ -38,15 +38,13 @@ const salary = [
 ]
 
 function calculateSalary(){
-    employee.forEach(emp=>{
-        const salaryObject = salary.find(salaryObject=> 
-            salaryObject.salaryId == emp.salaryId)
-        let gross = salaryObject.gross.base+salaryObject.gross.hra;
-        let workingSalary = (gross/30)* emp.days;
-        let deduction = salaryObject.deduction.tds + salaryObject.deduction.pf;
-        let totalSalary = workingSalary-deduction;
-        console.log(totalSalary.toFixed(2))
-        
-    })
+    
 }
 calculateSalary()
+var d = new Date();
+var month = d.getMonth();
+var year =  d.getFullYear();
+console.log(year)
+console.log(month)
+var d = new Date(9,2024,0).getDate();
+    console.log(d);
