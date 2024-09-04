@@ -38,13 +38,25 @@ const salary = [
 ]
 
 function calculateSalary(){
-    
+    employee.forEach(emp=>{
+        const salaryObject = salary.find(salary=>{
+            return salary.salaryId == emp.salaryId;
+        })
+
+        let totalGross = salaryObject.gross.base+salaryObject.gross.hra;
+        let totalDeduction = salaryObject.deduction.tds + salaryObject.deduction.pf;
+        let totalSalary = totalGross-totalDeduction;
+
+        let date = new Date();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+
+        let currentMonthDays = new Date(month,year,0).getDate();
+
+        let oneDaySalary = totalSalary/currentMonthDays;
+        let thisMonthSalary = oneDaySalary * emp.days;
+        console.log(`Salary of ${emp.id} is ${thisMonthSalary.toFixed(2)}`)
+        
+    })
 }
 calculateSalary()
-var d = new Date();
-var month = d.getMonth();
-var year =  d.getFullYear();
-console.log(year)
-console.log(month)
-var d = new Date(9,2024,0).getDate();
-    console.log(d);
