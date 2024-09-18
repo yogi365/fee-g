@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtName"/>
+    <!-- <button onclick="fetchValue()">Click</button><br> -->
+     <button>Click</button>
+    <h1>Value displayed here</h1>
+
+    <script>
+        // console.dir(document.querySelector('button'))
+
+        // document.querySelector('button').onclick = fetchValue;
+
+        document.querySelector('button').addEventListener('click',fetchValue)
+        function fetchValue(){
+            const txtName = document.getElementById('txtName');
+            const h1 = document.querySelector('h1');
+            h1.innerText = txtName.value;
+        }
+    </script>
+</body>
+</html>

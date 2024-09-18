@@ -50,8 +50,9 @@ function calculateSalary(){
         let date = new Date();
         let month = date.getMonth();
         let year = date.getFullYear();
-
-        let currentMonthDays = new Date(month,year,0).getDate();
+        // console.log(year);
+        let currentMonthDays = new Date(year,month,0).getDate();
+        console.log(currentMonthDays);
 
         let oneDaySalary = totalSalary/currentMonthDays;
         let thisMonthSalary = oneDaySalary * emp.days;

@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .para{
+            background-color: green;
+            color:blue;
+            font-size:24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p class="demo" align="right">
+        This is a paragraph
+    </p>
+
+    <script>
+        const p = document.querySelector('p');
+        // console.log(p.getAttribute('id'))
+        // p.id="para1"
+        // console.log(p.getAttribute('style'))
+        // p.setAttribute('align','center');
+        // console.dir(p);
+
+        // p.style.backgroundColor = "red";
+        // p.style="background-color:red;color:white;font-size:24px;"
+
+        // p.className ="para"
+
+        p.classList.add("para");
+        // p.classList.remove('demo');
+        console.log(p.classList);
+
+        p.classList.toggle('para');
+        console.log(p.classList);
+
+        p.classList.toggle('para');
+        console.log(p.classList);
+
+    </script>
+</body>
+</html>l
