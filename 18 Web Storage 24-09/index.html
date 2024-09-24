@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txtName" />
+    <button>Submit</button>
+    <label id="lblName">Name</label>
+    <script>
+        // sessionStorage.getItem();
+        // sessionStorage.setItem();
+        // localStorage.getItem();
+        // localStorage.setItem();
+
+
+        // sessionStorage.setItem('name','Abc');
+        // console.log(sessionStorage.getItem('name'));
+        // console.log(sessionStorage['name'])
+        // document.querySelector('#lblName').innerText = sessionStorage.getItem('name');
+
+        // const txtName = document.querySelector('#txtName');
+        // document.querySelector('button').addEventListener('click',function(){
+
+        //     sessionStorage.setItem('name',txtName.value);
+        //     document.querySelector('#lblName').innerText = sessionStorage.getItem('name');
+        // })
+
+
+        // document.querySelector('#lblName').innerText = localStorage.getItem('name');
+
+        // const txtName = document.querySelector('#txtName');
+        // document.querySelector('button').addEventListener('click', function () {
+
+        //     localStorage.setItem('name', txtName.value);
+        //     document.querySelector('#lblName').innerText = localStorage.getItem('name');
+        // })
+        //JSON.parse();
+        //JSON.stringify();
+
+        const fruits = ["Apple","Mango","Orange"];
+        localStorage.setItem('fruits',fruits);
+
+        console.log(fruits);
+        var lsFruits = localStorage.getItem('fruits')
+        lsFruits.forEach(x=>{
+            console.log(x);
+        })
+
+
+
+    </script>
+</body>
+
+</html>

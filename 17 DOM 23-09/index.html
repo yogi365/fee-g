@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height:200px;
+            background-color: blue;
+            border:2px solid black;
+        }
+
+        p{
+            background-color: red;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div onclick="divEvent(event)">
+        <p onclick="paraEvent(event)">This is a paragraph</p>
+    </div>       -->
+
+    <div >
+        <p>This is a paragraph</p>
+    </div> 
+
+    <script>
+        function bodyEvent(e){
+            e.stopPropagation();
+            alert('Body event generated');
+        }
+
+        function divEvent(e){
+            e.stopPropagation();
+            alert('Div event generated');
+        }
+
+        function paraEvent(e){
+            // e.stopPropagation();
+            alert('para1 event generated');
+        }
+
+        const para = document.querySelector('p');
+        const body = document.querySelector('body');
+        const div = document.querySelector('div');
+        const html = document.querySelector('html');
+        body.addEventListener('click',bodyEvent,{capture:true});
+        div.addEventListener('click',divEvent,{capture:true});
+        html.addEventListener('click',(e)=>{
+            // e.stopPropagation();
+            alert("HTML event generated")
+        },{capture:true});
+        para.addEventListener('click',paraEvent,{capture:true});
+        // rgb(128,195,216)
+        
+        
+        //https://feecq.github.io/api/users.json
+
+    </script>
+
+</body>
+</html>

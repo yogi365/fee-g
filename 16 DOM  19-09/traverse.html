@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outerDiv">
+        <p>This is first paragraph</p>
+        <div>
+            <ul>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+                <li>Fourth</li>
+                <li>Fifth</li>
+            </ul>
+        </div>
+
+        <div id="innerDiv2" ></div>
+            <ol>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+                <li>Fourth</li>
+                <li>Fifth</li>
+            </ol>
+        </div>
+    </div>
+    <script>
+        // const body = document.body;
+        // console.log(body.childNodes[1].childNodes[3].childNodes[1])
+        // console.log(body.children[0].children[1].children[0])
+
+        // const li =  document.querySelector('li');
+        // console.log(li.parentElement.parentElement.parentElement.parentElement);
+        // console.log(li.parentElement.parentElement.previousElementSibling)
+        // const p = document.querySelector('p');
+        // console.log(p.nextElementSibling)
+        const ul = document.querySelector('ul');
+        // console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild)
+        
+
+    </script>
+</body>
+</html>
