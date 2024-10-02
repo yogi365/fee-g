@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="txtTask" />
+    </div>
+    <div>
+        <ul id="task-list">
+
+        </ul>
+    </div>
+    <script>
+        document.querySelector('#txtTask').addEventListener('keyup', function (e) {
+            if (e.key == "Enter" && e.target.value!="") {
+                const value = e.target.value;
+                const li = document.createElement('li');
+                li.innerText = value;                
+                e.target.value = "";
+                const ch = document.createElement('input');
+                ch.type="checkbox";
+                ch.addEventListener('change',function(e){
+                    if(e.target.checked){
+                        li.style.textDecoration = "line-through";
+                    }else{
+                        li.style.textDecoration = "none";
+                    }
+                })
+                const btn = document.createElement('button');
+                btn.innerText = "X";
+                btn.addEventListener('click',function(e){
+                    li.remove();
+                })
+                li.append(ch,btn);                
+                document.querySelector('#task-list').append(li);
+            }
+        })
+    </script>
+
+</body>
+
+</html>

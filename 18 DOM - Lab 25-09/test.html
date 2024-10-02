@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color:red;
+        }
+        .not-active{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="not-active">Hello</h2>
+    <button>Click</button>
+    <script>
+        document.querySelector('button').addEventListener('click',function(){
+            document.querySelector('h2').classList.add('active');
+        })
+    </script>
+</body>
+</html>
