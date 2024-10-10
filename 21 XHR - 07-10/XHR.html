@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();
+        
+        // xhr.open('GET','https://files.catbox.moe/mre3t1.JPG',true);
+        xhr.open('get','https://feecq.github.io/api/movies.json',true);
+        // xhr.responseType ="blob";
+        xhr.send();
+        console.log(xhr.response)
+
+        // console.log(xhr)
+
+        // xhr.onreadystatechange = function(){
+        //     console.log(xhr.readyState);
+        //     if(xhr.readyState==2){
+        //         console.log(xhr);
+        //     }
+        // }
+
+        xhr.onload=function(){
+            // // console.log(JSON.parse(xhr.response))
+            // const url = URL.createObjectURL(xhr.response);
+            // // console.log(xhr.response)
+            // const img  = document.createElement('img');
+            // img.src=url;
+            // img.style.width="400px";
+            // img.style.height="400px";
+            // document.body.prepend(img);
+        }
+
+        xhr.onerror = function(){
+            console.error("Error occured while connecting to the server");
+        }
+
+        // xhr.onprogress = function(event){
+        //     console.log(event);
+        // }
+    </script>
+</body>
+</html>

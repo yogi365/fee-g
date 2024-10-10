@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Fetch Date</button>
+    <div>
+        <table id="data">
+
+        </table>
+    </div>
+    <script>
+        let users = [];
+        document.querySelector('button').addEventListener('click',function(){
+            const xhr = new XMLHttpRequest();
+            xhr.open('get','https://feecq.github.io/api/users.json',true);
+            xhr.send();
+            xhr.onload = function(){
+                // const users = JSON.parse(xhr.response) || [];
+                if(xhr.status==200){
+                    users = JSON.parse(xhr.response);
+                    users.forEach(user => {
+                            createTable(user);
+                    });
+                }
+            }
+        })
+
+        function createTable(user){
+            const tr = document.createElement('tr');
+            for(key in user){
+                const td = document.createElement('td');
+                td.innerText = user[key];
+                tr.append(td);
+            }
+            document.querySelector('table').append(tr);
+        }
+    </script>
+</body>
+</html>
