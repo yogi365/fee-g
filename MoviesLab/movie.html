@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(35, 35, 35);
+            color:white;
+        }
+        .moviesContainer{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .moviesContainer div{
+            flex: 1 1 250px;
+        }
+        .moviesContainer div img{
+            width:200px;
+            object-fit: cover;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="inputContainer">
+        <input type="text" id="movieRating"/>
+        <button onclick="searchMovie()">Search</button>
+    </div>
+    <div class="moviesContainer">
+
+    </div>
+    <script>
+        let moviesArray = [];
+        function fetchMovies(){
+            const xhr = new XMLHttpRequest();
+            xhr.open('get','https://feecq.github.io/api/movies.json',false);
+            xhr.send();
+            moviesArray = JSON.parse(xhr.response);
+            moviesArray.forEach(movie=>{
+                createMovieCard(movie);
+            })
+        }
+        function createMovieCard(movie){
+            const div = document.createElement('div');
+            const img = document.createElement('img');
+            const h3 = document.createElement('h3');
+            const p = document.createElement('p');
+            const a = document.createElement('a');
+
+            img.src = movie.image;
+            img.alt = movie.movie;
+
+            h3.innerText = movie.movie;
+            p.innerText = `Rating: ${movie.rating}`;
+
+            a.href=movie.imdb_url;
+            a.innerText = "More Info"
+            div.append(img,h3,p,a)
+            document.querySelector('.moviesContainer').append(div)
+
+        }
+
+        function searchMovie(){
+            var rating = document.querySelector('#movieRating').value;
+            if(rating=="") {
+                alert('rating cannot be empty')
+            return;
+            };
+
+            var tempMovies = moviesArray.filter(movie=>movie.rating==rating);
+            document.querySelector('.moviesContainer').innerHTML = ""
+            if(tempMovies.length>0){
+                tempMovies.forEach(movie=>createMovieCard(movie));
+            }
+            else{
+                moviesArray.forEach(movie=>createMovieCard(movie))
+            }
+        }
+        window.onload = fetchMovies;
+    </script>
+
+</body>
+</html>

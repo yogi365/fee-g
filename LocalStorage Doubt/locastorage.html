@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"/> <button onclick="addRecord()">Add</button>
+    <ul>
+
+    </ul>
+    <script>
+        let gradeArray = localStorage.getItem('sectionG2')?JSON.parse(localStorage.getItem('sectionG2')):[];
+        // let gradeArray = []
+        gradeArray.forEach(data =>addRecordToLi(data));
+        function addRecord(){
+            // console.log(typeof gradeArray)
+            gradeArray.push(document.querySelector('input').value);            
+            localStorage.setItem('sectionG2',JSON.stringify(gradeArray));  
+            addRecordToLi(document.querySelector('input').value)  
+            document.querySelector('input').value = "";
+            
+        }
+
+        function addRecordToLi(data){
+            let li = document.createElement("li");
+            li.innerText = data;
+            document.querySelector('ul').append(li);
+        }
+    </script>
+</body>
+</html>
