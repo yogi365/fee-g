@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error, .error:focus{
+            border:1px solid red;
+            outline:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <div class="form-group">
+            <lable>Product</lable>
+            <input type="text" id="txtProduct"/>
+        </div>
+        <div class="form-group">
+            <lable>Qunatity</lable>
+            <input type="number" id="txtQty"/>
+        </div>
+        <div class="form-group">
+            <lable>Price</lable>
+            <input type="number" id="txtPrice"/>
+        </div>
+        <button>Add</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Particulars</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <p>Grand Total: <span id="grandTotal">0</span></p>
+    </div>
+    <script>
+        var product = {}
+        var sno = 1;
+        let grandTotal = 0;
+        document.querySelector('button').addEventListener('click',addProduct);
+        function addProduct(){
+            let qty = document.querySelector('#txtQty');
+            if(qty.value<1){
+                qty.classList.add('error')
+                return;
+            }
+            qty.classList.remove('error')
+
+            product.sno = sno++;
+             product.name = document.querySelector('#txtProduct').value;
+             product.qty = qty.value;
+             product.price = document.querySelector('#txtPrice').value;
+             product.total = (product.qty * product.price).toFixed(2);
+             appendToTable(product);
+             grandTotal+=parseFloat(product.total);
+             document.querySelector('#grandTotal').innerText = grandTotal;
+        }
+
+        function appendToTable(productObject){
+            const tr = document.createElement('tr');
+            for(key in productObject){
+                const td = document.createElement('td')
+                td.innerText = productObject[key]
+                tr.append(td);
+            }
+            document.querySelector('table tbody').append(tr);
+        }
+    </script>
+
+</body>
+</html>
