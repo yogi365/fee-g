@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Origin</th>
+                
+                <th>Description</th>
+                <th>Life Span</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        fetch("https://api.thecatapi.com/v1/breeds")
+        .then(res=>res.json())
+        .then(data=>data.forEach(catObject=>{
+            createRows(catObject);
+        }))
+        .catch(err=>console.error(err));
+
+        function createRows(catObject){
+            const tr = document.createElement('tr');
+            const tdName = document.createElement('td');
+            const tdOrigin = document.createElement('td');
+            const tdDescription = document.createElement('td');
+            const tdLifeSpan = document.createElement('td');
+
+            tdName.innerText = catObject.name;
+            tdOrigin.innerText = catObject.origin;
+            tdLifeSpan.innerText = catObject.life_span;
+            tdDescription.innerText = catObject.description;
+
+            tr.append(tdName,tdOrigin,tdDescription,tdLifeSpan);
+            document.querySelector('tbody').append(tr);
+        }
+
+    </script>
+
+</body>
+</html>

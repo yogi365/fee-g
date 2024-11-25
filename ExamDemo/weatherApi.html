@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="txtCityName"/>
+        <button>Get Data</button>
+    </div>
+    <div class="cityContainer">
+        <h2 id="cityName"></h2>
+        <h3>Temp: <span id="cityTemp"></span></h3>
+    </div>
+
+    <script>
+        document.querySelector('button').addEventListener('click',()=>{
+            const cityName = document.querySelector('#txtCityName').value;
+            console.log(cityName)
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=aa74edc073deb3c3f7b463f91c781102&units=metric`;
+            fetch(apiUrl)
+            .then(res=>res.json())
+            .then(data=>{
+                document.querySelector('#cityName').innerText = cityName;
+                document.querySelector('#cityTemp').innerText = data.main.temp;
+            });
+        })
+    </script>
+    
+</body>
+</html>
